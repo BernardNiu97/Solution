@@ -1,0 +1,175 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{mathrsfs}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{enumerate}
+\usepackage{draftwatermark}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage[normalem]{ulem}
+
+\SetWatermarkAngle{60}
+\SetWatermarkColor{black!30!cyan!10}
+\SetWatermarkFontSize{6cm}
+\SetWatermarkText{Read Only}
+
+\usepackage{lipsum}
+
+%\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkAuthorContact}
+\rhead{\hmwkChapter}
+\lhead{\hmwkClass}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+\newcommand\email[1]{\href{mailto:#1}{\uline{\nolinkurl{#1}}}}
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newenvironment{homeworkProblem}{
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}	
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Chapter\ 1}
+\newcommand{\hmwkDueDate}{}
+\newcommand{\hmwkClass}{Real Analysis}
+\newcommand{\hmwkClassTime}{}
+\newcommand{\hmwkClassInstructor}{}
+\newcommand{\hmwkChapter}{Chapter 1}
+\newcommand{\hmwkAuthorName}{Xinyuan Niu}
+\newcommand{\hmwkAuthorContact}{bernardniu97@gmail.com}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\Huge{\textbf{\hmwkClass}}}\\
+    \normalsize\vspace{0.1in}\LARGE{\textbf{Additional Solution to \hmwkTitle}}\\
+    \vspace{0.1in}\Huge{\textit{\hmwkClassInstructor}}
+    \vspace{2.5in}
+    \author{\huge{\textbf{\hmwkAuthorName}}\thanks{\large{This file is hereby granted for private, non-commercial and educational purpose only.\ If you find any flaws, please contact me at \email{bernardniu97@gmail.com}}}}
+	\date{}
+}
+
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+
+\begin{document}
+
+%\lipsum[1-20]
+
+\maketitle
+
+\pagebreak
+
+
+\Large{\textbf{Exercise1}}\ Prove that the Cantor set $\mathcal{C}$ constructed in the text is totally disconnected and perfect.\\
+\Large{\textbf{Solution}}\\
+  	Consider the construction of Cantor set. $\forall\ x,y \in \mathcal{C}$, we can find $k \in N$ while \emph{x} and \emph{y} belong to the same interval in $C_k$ but two different intervals in $C_{k+1}$. W.L.O.G. note $x,y \in [a_s,b_s]$ which is preserved after $k_{th}$ operation with $x \in [a_s, \frac{2a_s+b_s}{3}]$ and $y \in [\frac{a_s+2b_s}{3}, b_s]$,thus $(\frac{2a_s+b_s}{3}, \frac{a_s+2b_s}{3})$ will be deleted in the next operation. Then it is obvious that $\exists \ z \in (\frac{2a_s+b_s}{3}, \frac{a_s+2b_s}{3})$ s.t. $x < z < y$ and $z \notin \mathcal{C}$, which means that the Cantor set is totally disconnected.\\
+  	the other property is also apparently with the two following facts:
+  	\begin{enumerate}
+  		\item The length of each interval in $C_{k}$ is $\frac{1}{3^k}$;
+  		\item The end points of each interval in $C_{k}$ all belong to $\mathcal{C}$.
+  	\end{enumerate}
+  	$\forall\ x \in \mathcal{C}$, we note that $x_n \neq x$ is one of the two end points of the interval in $C_k$ which includes \emph{x}. Then $\{x_n\}^{\infty}_{n = 0} \subset \mathcal{C}$ and $|x-x_k|\leq\frac{1}{3^k}$.So \emph{x} is not an isolated point, that equally proves the Cantor set is perfect since we've already figured out that $\mathcal{C}$ is closed.
+\\
+\\
+\Large{\textbf{Exercise10}} \    Let\ $\hat{\mathcal{C}}$\ denote a Cantor-like set. Let $F_i$ denote a certain piecewise-linear and continuous function on [0,1] which satisfies:
+\begin{enumerate}[a)]
+	\item $F_i = 0$ at the center of all intervals in stage \emph{i} of the construction of $\hat{\mathcal{C}}$;
+	\item $F_i = 1$ in the complement of the intervals in stage \emph{i} of the construction of $\hat{\mathcal{C}}$;
+	\item $F_i(x)$ is a linear function in the rest of [0,1].
+\end{enumerate}
+Let $f_n$ = $\prod_{i=1}^{n} F_i$, Prove the following:
+\begin{enumerate}[(a)]
+	\item (We see the first part of (a) as kind of a hint) $f_n(x)$ converges to a limit as $n\to\infty$ which we denote by  $f(x)$.
+	\item \emph{f} is discontinuous at every point of $\hat{\mathcal{C}}$.
+\end{enumerate}
+\Large{\textbf{Solution}}\
+	\begin{enumerate}[(a)]
+		\item According to the construction of $F_i(x)$, we can easily notice that $F_i(x)\in[0,1]$ for $\forall\ x \in [0,1]$. Then it can be deduced that $f_i(x)\in[0,1]$ and $f_{i+1}(x) \leq f_{i}(x)$ for $\forall x \in [0,1]$. So $\{f_i(x)\}$ is monotonous and bounded, thus convergent.
+		\item First we point out that $f(x) = 0, \forall\ x \in \hat{\mathcal{C}}$. Since $\sum^{\infty}_{n=1} {2^{k-1}l_k<1}$, \ $\lim\limits_{n\to\infty}l_k = 0$. Then $\forall\ \epsilon > 0$, $\exists\ N \in N^{*}$\;s.t.\;after $k_{th}$ operation, the length of each remaining interval, $l_{k} < \epsilon$. For $\forall\ x \in \hat{\mathcal{C}}$, denote the interval, left after $k_{th}$ operation, which includes \emph{x}, $I_k$. It is obvious that the midpoint of $I_k$, referred to as $x_k$, doesn't belong to $\hat{\mathcal{C}}$ with $f(x_k) = 0$ and $|x - x_k| < \epsilon$. Now $\{x_n\}$ converges to \emph{x}, but $f(x_n) \equiv 0$ with $f(x) = 1$. So $f(x)$ isn't continuous at any point in $\hat{\mathcal{C}}$.
+	\end{enumerate}
+
+\Large{\textbf{Exercise12}} \ Prove the following:
+\begin{enumerate}[(a)]
+	\item An open disc in $\mathbb{R}^2$  is not the disjoint union of open rectangles.
+	\item An open connected set $\Omega$ is the disjoint union of open rectangles if and only if  $\Omega$  itself is an open rectangle.
+\end{enumerate} 
+\Large{\textbf{Solution}}\
+	\begin{enumerate}[(a)]
+		\item W.L.O.G. the center of the disc is exactly at the origin. Since all the open rectangles are disjoint, so any point on the boundary of any rectangle must be not in the disc. If there is a point on the boundary of a certain rectangle $R_k$ which is in $\mathbb{R}^2 \setminus (\partial R_k \bigcup R_k)$, apparently there will be a open set $T \subset R_k$, the distance between whom and the origin is larger than the radii $r$, which is contradictory to the definition. It indicates that all the bounded points of those rectangles are just on the boundary of the disc, so all of the bounded points share the equal normal, it is obviously incorrect.
+		\item We only need to prove \ $\mathnormal{only\ if}$. Here we prove it with contradiction. Presume there is an open connected set $\mathcal{A}$ matching conditions, however, not being an open rectangle. Then $\mathcal{A}$ is capable of being depicted as the union of no less than two disjointed open rectangles, thus it can be written as two disjointed open sets, this doesn't match the fact that $\mathcal{A}$ is connected.   
+	\end{enumerate}
+
+\Large{\textbf{Exercise14}}\ The \textbf{outer Jordan content} $J_{*}(E)$ of a set of \emph{E} in $\mathbb{R}$ is defined by 
+\[J_{*}(E) = \inf\sum^{N}_{j = 1}|I_j|\] 
+where the inf is taken over every \emph{finite} covering $E\subset \bigcup^N_{j=1}I_j$, by intervals $I_j$.
+\begin{enumerate}[(a)]
+	\item Prove that $J_{*}(E) = J_{*}(\bar{E})$ for every set \emph{E}(here $\bar{E}$ denotes the closure of \emph{E}).
+	\item Exhibit a countable subset E $\subset [0,1]$ such that $J_{*}(E) = 1$ while $m_{*}(E) = 0$ 
+\end{enumerate}
+\end{document}
